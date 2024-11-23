@@ -8,22 +8,11 @@ use Valrok\Cookie\Cookie;
  * Manages, creates, deletes cookies
  */
 class CookieManager {
-	/**
-	 * Array of cookies
-	 *
-	 * @var Cookie[]
-	 */
+
 	private static array $cookies = [];
+	private static ?CookieManager $_instance = null;
 
-	/**
-	 * @var ?CookieManager Stores instance of this class.
-	 */
-	private static $_instance;
-
-	/**
-	 * Returns the instance of this class.
-	 */
-	public static function instance() {
+	public static function instance(): self {
 		if ( is_null( self::$_instance ) ) {
 			self::$_instance = new self();
 		}
@@ -116,7 +105,7 @@ class CookieManager {
 	 * @param Cookie $cookie
 	 * @return self
 	 */
-	public function set( Cookie $cookie ) {
+	public function set( Cookie $cookie ): self {
 		/**
 		 * set cookie
 		 */
@@ -134,7 +123,7 @@ class CookieManager {
 	 * @param array $option_args
 	 * @return self
 	 */
-	public function delete( Cookie $cookie ) {
+	public function delete( Cookie $cookie ): self {
 		$cookie->delete();
 		if ( $this->has( $cookie->name ) ) {
 			/**

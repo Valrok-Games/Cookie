@@ -1,0 +1,48 @@
+{
+    "name": "valrok/cookie",
+    "description": "php package to create, get and set cookies",
+    "type": "php-package",
+    "keywords": [
+        "php",
+        "cookie"
+    ],
+    "homepage": "https://github.com/Valrok-Games/Cookie.git",
+    "authors": [
+        {
+            "name": "Valrok ApS",
+            "email": "support@valrokgames.com",
+            "homepage": "https://valrokgames.com/"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "php": ">= 8.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "11.2.6",
+        "brain/monkey": "2.6.1",
+        "phpunit/php-code-coverage": "11.0.5"
+    },
+    "scripts": {
+        "testverbose": "phpunit --verbose tests",
+        "test": "phpunit --testdox",
+        "testwithcoverage": "php -dxdebug.mode=coverage ./vendor/bin/phpunit --testdox  --coverage-text --coverage-html ./tests/_coverage",
+        "testci": "php -dxdebug.mode=coverage ./vendor/bin/phpunit --testdox --log-junit=phpunit-report.xml --coverage-cobertura=coverage.cobertura.xml --coverage-text --colors=never"
+    },
+    "autoload": {
+        "psr-4": {
+            "Valrok\\Cookie\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Valrok\\Cookie\\Tests\\": "tests/"
+        }
+    },
+    "version": "1.0.0"
+}
